@@ -1,22 +1,22 @@
 use crate::enumerations::SIMCONNECT_SIMOBJECT_TYPE;
 
-/// The SIMCONNECT_DATA_FACILITY_AIRPORT structure is used to return information
+/// The SIMCONNECT_DATA_FACILITY_AIRPORT pub structure is used to return information
 /// on a single airport in the facilities cache.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_FACILITY_AIRPORT {
+pub struct SIMCONNECT_DATA_FACILITY_AIRPORT {
     Icao: [u8; 9],  // char [9]
     Latitude: f64,  // double
     Longitude: f64, // double
     Altitude: f64,  // double
 }
 
-/// The SIMCONNECT_DATA_FACILITY_NDB structure is used to return information
+/// The SIMCONNECT_DATA_FACILITY_NDB pub structure is used to return information
 /// on a single NDB station in the facilities cache.
 /// Supposed to extend SIMCONNECT_DATA_FACILITY_WAYPOINT
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_FACILITY_NDB {
+pub struct SIMCONNECT_DATA_FACILITY_NDB {
     Icao: [u8; 9],   // char [9]
     Latitude: f64,   // double
     Longitude: f64,  // double
@@ -25,12 +25,12 @@ struct SIMCONNECT_DATA_FACILITY_NDB {
     fFrequency: u32, // DWORD
 }
 
-/// The SIMCONNECT_DATA_FACILITY_VOR structure is used to return information
+/// The SIMCONNECT_DATA_FACILITY_VOR pub structure is used to return information
 ///  on a single VOR station in the facilities cache.
 /// Supposed to extend SIMCONNECT_DATA_FACILITY_NDB
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_FACILITY_VOR {
+pub struct SIMCONNECT_DATA_FACILITY_VOR {
     Icao: [u8; 9],         // char [9]
     Latitude: f64,         // double
     Longitude: f64,        // double
@@ -45,12 +45,12 @@ struct SIMCONNECT_DATA_FACILITY_VOR {
     fGlideSlopeAngle: f32, // float
 }
 
-/// The SIMCONNECT_DATA_FACILITY_WAYPOINT structure used to return information
+/// The SIMCONNECT_DATA_FACILITY_WAYPOINT pub structure used to return information
 ///  on a single waypoint in the facilities cache.
 /// Supposed to extend SIMCONNECT_DATA_FACILITY_AIRPORT
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_FACILITY_WAYPOINT {
+pub struct SIMCONNECT_DATA_FACILITY_WAYPOINT {
     Icao: [u8; 9],  // char [9]
     Latitude: f64,  // double
     Longitude: f64, // double
@@ -58,11 +58,11 @@ struct SIMCONNECT_DATA_FACILITY_WAYPOINT {
     fMagVar: f32,   // float
 }
 
-/// The SIMCONNECT_DATA_INITPOSITION structure is used to initialize the position
+/// The SIMCONNECT_DATA_INITPOSITION pub structure is used to initialize the position
 ///  of the user aircraft, AI controlled aircraft, or other simulation object.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_INITPOSITION {
+pub struct SIMCONNECT_DATA_INITPOSITION {
     Latitude: f64,  // double
     Longitude: f64, // double
     Altitude: f64,  // double
@@ -73,29 +73,29 @@ struct SIMCONNECT_DATA_INITPOSITION {
     Airspeed: u32,  // DWORD
 }
 
-/// The SIMCONNECT_DATA_LATLONALT structure is used to hold a world position.
+/// The SIMCONNECT_DATA_LATLONALT pub structure is used to hold a world position.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_LATLONALT {
+pub struct SIMCONNECT_DATA_LATLONALT {
     Latitude: f64,  // double
     Longitude: f64, // double
     Altitude: f64,  // double
 }
 
-/// The SIMCONNECT_DATA_MARKERSTATE structure is used to help graphically
+/// The SIMCONNECT_DATA_MARKERSTATE pub structure is used to help graphically
 /// link flight model data with the graphics model.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_MARKERSTATE {
+pub struct SIMCONNECT_DATA_MARKERSTATE {
     szMarkerName: [u8; 64], // char [64]
     dwMarkerState: u32,     // DWORD
 }
 
-/// The SIMCONNECT_DATA_MARKERSTATE structure is used to help graphically
+/// The SIMCONNECT_DATA_MARKERSTATE pub structure is used to help graphically
 /// link flight model data with the graphics model.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_WAYPOINT {
+pub struct SIMCONNECT_DATA_WAYPOINT {
     Latitude: f64,        // double
     Longitude: f64,       // double
     Altitude: f64,        // double
@@ -103,10 +103,10 @@ struct SIMCONNECT_DATA_WAYPOINT {
     ktsSpeed: f64,        // double
     percentThrottle: f64, // double
 }
-/// The SIMCONNECT_DATA_XYZ structure is used to hold a 3D co-ordinate.
+/// The SIMCONNECT_DATA_XYZ pub structure is used to hold a 3D co-ordinate.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_DATA_XYZ {
+pub struct SIMCONNECT_DATA_XYZ {
     x: f64, // double
     y: f64, // double
     z: f64, // double
@@ -117,18 +117,18 @@ struct SIMCONNECT_DATA_XYZ {
 /// server should use to return the specified data to the client.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV {
+pub struct SIMCONNECT_RECV {
     dwSize: u32,    // DWORD
     dwVersion: u32, // DWORD
     dwID: u32,      // DWORD
 }
 
-/// The SIMCONNECT_RECV_AIRPORT_LIST structure is used to return a list
-/// of SIMCONNECT_DATA_FACILITY_AIRPORT structures.
+/// The SIMCONNECT_RECV_AIRPORT_LIST pub structure is used to return a list
+/// of SIMCONNECT_DATA_FACILITY_AIRPORT pub structures.
 /// Supposed to extend SIMCONNECT_RECV_FACILITIES_LIST
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_AIRPORT_LIST {
+pub struct SIMCONNECT_RECV_AIRPORT_LIST {
     dwSize: u32,                                   // DWORD
     dwVersion: u32,                                // DWORD
     dwID: u32,                                     // DWORD
@@ -139,12 +139,12 @@ struct SIMCONNECT_RECV_AIRPORT_LIST {
     rgData: [SIMCONNECT_DATA_FACILITY_AIRPORT; 1], // SIMCONNECT_DATA_FACILITY_AIRPORT [1]
 }
 
-/// The SIMCONNECT_RECV_ASSIGNED_OBJECT_ID structure is used to return
+/// The SIMCONNECT_RECV_ASSIGNED_OBJECT_ID pub structure is used to return
 /// an object ID that matches a request ID.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_ASSIGNED_OBJECT_ID {
+pub struct SIMCONNECT_RECV_ASSIGNED_OBJECT_ID {
     dwSize: u32,      // DWORD
     dwVersion: u32,   // DWORD
     dwID: u32,        // DWORD
@@ -152,12 +152,12 @@ struct SIMCONNECT_RECV_ASSIGNED_OBJECT_ID {
     dwObjectID: u32,  // DWORD
 }
 
-/// The SIMCONNECT_RECV_CLIENT_DATA structure will be received by the client
+/// The SIMCONNECT_RECV_CLIENT_DATA pub structure will be received by the client
 /// after a successful call to SimConnect_RequestClientData. It is an identical
-/// structure to SIMCONNECT_RECV_SIMOBJECT_DATA.
+/// pub structure to SIMCONNECT_RECV_SIMOBJECT_DATA.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_CLIENT_DATA {
+pub struct SIMCONNECT_RECV_CLIENT_DATA {
     dwSize: u32,        // DWORD
     dwVersion: u32,     // DWORD
     dwID: u32,          // DWORD
@@ -171,11 +171,11 @@ struct SIMCONNECT_RECV_CLIENT_DATA {
     dwData: u32,        // DWORD
 }
 
-/// The SIMCONNECT_RECV_EVENT structure is used to return an event ID to the client.
+/// The SIMCONNECT_RECV_EVENT pub structure is used to return an event ID to the client.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_EVENT {
+pub struct SIMCONNECT_RECV_EVENT {
     dwSize: u32,    // DWORD
     dwVersion: u32, // DWORD
     dwID: u32,      // DWORD
@@ -184,12 +184,12 @@ struct SIMCONNECT_RECV_EVENT {
     dwData: u32,    // DWORD
 }
 
-/// The SIMCONNECT_RECV_EVENT_FILENAME structure is used to return a filename and
+/// The SIMCONNECT_RECV_EVENT_FILENAME pub structure is used to return a filename and
 /// an event ID to the client.
 /// Supposed to extend SIMCONNECT_RECV_EVENT
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_EVENT_FILENAME {
+pub struct SIMCONNECT_RECV_EVENT_FILENAME {
     dwSize: u32,           // DWORD
     dwVersion: u32,        // DWORD
     dwID: u32,             // DWORD
@@ -200,13 +200,13 @@ struct SIMCONNECT_RECV_EVENT_FILENAME {
     dwFlags: u32,          // DWORD
 }
 
-/// The SIMCONNECT_RECV_EVENT_FRAME structure is used with the
+/// The SIMCONNECT_RECV_EVENT_FRAME pub structure is used with the
 /// SimConnect_SubscribeToSystemEvent call to return the frame rate and simulation
 /// speed to the client.
 /// Supposed to extend SIMCONNECT_RECV_EVENT
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_EVENT_FRAME {
+pub struct SIMCONNECT_RECV_EVENT_FRAME {
     dwSize: u32,     // DWORD
     dwVersion: u32,  // DWORD
     dwID: u32,       // DWORD
@@ -217,12 +217,12 @@ struct SIMCONNECT_RECV_EVENT_FRAME {
     fSimSpeed: f32,  // float
 }
 
-/// The SIMCONNECT_RECV_EVENT_OBJECT_ADDREMOVE structure is used to return the type
+/// The SIMCONNECT_RECV_EVENT_OBJECT_ADDREMOVE pub structure is used to return the type
 /// and ID of an AI object that has been added or removed from the simulation, by any client.
 /// Supposed to extend SIMCONNECT_RECV_EVENT
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_EVENT_OBJECT_ADDREMOVE {
+pub struct SIMCONNECT_RECV_EVENT_OBJECT_ADDREMOVE {
     dwSize: u32,                                              // DWORD
     dwVersion: u32,                                           // DWORD
     dwID: u32,                                                // DWORD
@@ -232,12 +232,12 @@ struct SIMCONNECT_RECV_EVENT_OBJECT_ADDREMOVE {
     eObjType: SIMCONNECT_SIMOBJECT_TYPE, // SIMCONNECT_SIMOBJECT_TYPE
 }
 
-/// The SIMCONNECT_RECV_EXCEPTION structure is used with the SIMCONNECT_EXCEPTION
+/// The SIMCONNECT_RECV_EXCEPTION pub structure is used with the SIMCONNECT_EXCEPTION
 /// enumeration type to return information on an error that has occurred.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_EXCEPTION {
+pub struct SIMCONNECT_RECV_EXCEPTION {
     dwSize: u32,      // DWORD
     dwVersion: u32,   // DWORD
     dwID: u32,        // DWORD
@@ -246,13 +246,13 @@ struct SIMCONNECT_RECV_EXCEPTION {
     dwIndex: u32,     // DWORD
 }
 
-/// The SIMCONNECT_RECV_FACILITIES_LIST structure is used to provide information on the number
+/// The SIMCONNECT_RECV_FACILITIES_LIST pub structure is used to provide information on the number
 /// of elements in a list of facilities returned to the client, and the number of packets
 /// that were used to transmit the data.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_FACILITIES_LIST {
+pub struct SIMCONNECT_RECV_FACILITIES_LIST {
     dwSize: u32,      // DWORD
     dwVersion: u32,   // DWORD
     dwID: u32,        // DWORD
@@ -262,12 +262,12 @@ struct SIMCONNECT_RECV_FACILITIES_LIST {
     dwOutOf: u32,     // DWORD
 }
 
-/// The SIMCONNECT_RECV_NDB_LIST structure is used to return a list of SIMCONNECT_DATA_FACILITY_NDB
-/// structures.
+/// The SIMCONNECT_RECV_NDB_LIST pub structure is used to return a list of SIMCONNECT_DATA_FACILITY_NDB
+/// pub structures.
 /// Supposed to extend SIMCONNECT_RECV_FACILITES_LIST
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_NDB_LIST {
+pub struct SIMCONNECT_RECV_NDB_LIST {
     dwSize: u32,                               // DWORD
     dwVersion: u32,                            // DWORD
     dwID: u32,                                 // DWORD
@@ -278,12 +278,12 @@ struct SIMCONNECT_RECV_NDB_LIST {
     rgData: [SIMCONNECT_DATA_FACILITY_NDB; 1], // SIMCONNECT_DATA_FACILITY_NDB[1]
 }
 
-/// The SIMCONNECT_RECV_OPEN structure is used to return information to the client, after a
+/// The SIMCONNECT_RECV_OPEN pub structure is used to return information to the client, after a
 /// successful call to SimConnect_Open.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_OPEN {
+pub struct SIMCONNECT_RECV_OPEN {
     dwSize: u32,                    // DWORD
     dwVersion: u32,                 // DWORD
     dwID: u32,                      // DWORD
@@ -300,22 +300,22 @@ struct SIMCONNECT_RECV_OPEN {
     dwReserved2: u32,               // DWORD
 }
 
-/// The SIMCONNECT_RECV_QUIT is an identical structure to the SIMCONNECT_RECV structure.
+/// The SIMCONNECT_RECV_QUIT is an identical pub structure to the SIMCONNECT_RECV pub structure.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_QUIT {
+pub struct SIMCONNECT_RECV_QUIT {
     dwSize: u32,    // DWORD
     dwVersion: u32, // DWORD
     dwID: u32,      // DWORD
 }
 
-/// The SIMCONNECT_RECV_RESERVED_KEY structure is used with the
+/// The SIMCONNECT_RECV_RESERVED_KEY pub structure is used with the
 /// SimConnect_RequestReservedKey function to return the reserved key combination.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_RESERVED_KEY {
+pub struct SIMCONNECT_RECV_RESERVED_KEY {
     dwSize: u32,                // DWORD
     dwVersion: u32,             // DWORD
     dwID: u32,                  // DWORD
@@ -323,13 +323,13 @@ struct SIMCONNECT_RECV_RESERVED_KEY {
     szReservedKey: [u8; 50],    // char [50]
 }
 
-/// The SIMCONNECT_RECV_SIMOBJECT_DATA structure will be received by the client
+/// The SIMCONNECT_RECV_SIMOBJECT_DATA pub structure will be received by the client
 /// after a successful call to SimConnect_RequestDataOnSimObject or
 /// SimConnect_RequestDataOnSimObjectType.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_SIMOBJECT_DATA {
+pub struct SIMCONNECT_RECV_SIMOBJECT_DATA {
     dwSize: u32,        // DWORD
     dwVersion: u32,     // DWORD
     dwID: u32,          // DWORD
@@ -343,12 +343,12 @@ struct SIMCONNECT_RECV_SIMOBJECT_DATA {
     dwData: u32,        // DWORD
 }
 
-/// The SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE structure will be received by the
+/// The SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE pub structure will be received by the
 /// client after a successful call to SimConnect_RequestDataOnSimObjectType. It
-/// is an identical structure to SIMCONNECT_RECV_SIMOBJECT_DATA.
+/// is an identical pub structure to SIMCONNECT_RECV_SIMOBJECT_DATA.
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE {
+pub struct SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE {
     dwSize: u32,        // DWORD
     dwVersion: u32,     // DWORD
     dwID: u32,          // DWORD
@@ -362,13 +362,13 @@ struct SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE {
     dwData: u32,        // DWORD
 }
 
-/// The SIMCONNECT_RECV_SYSTEM_STATE structure is used with the
+/// The SIMCONNECT_RECV_SYSTEM_STATE pub structure is used with the
 /// SimConnect_RequestSystemState function to retrieve specific Microsoft Flight
 /// Simulator systems states and information.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_SYSTEM_STATE {
+pub struct SIMCONNECT_RECV_SYSTEM_STATE {
     dwSize: u32,         // DWORD
     dwVersion: u32,      // DWORD
     dwID: u32,           // DWORD
@@ -378,12 +378,12 @@ struct SIMCONNECT_RECV_SYSTEM_STATE {
     szString: [u8; 256], // char [MAX_PATH]
 }
 
-/// The SIMCONNECT_RECV_VOR_LIST structure is used to return a list of
-/// SIMCONNECT_DATA_FACILITY_VOR structures.
+/// The SIMCONNECT_RECV_VOR_LIST pub structure is used to return a list of
+/// SIMCONNECT_DATA_FACILITY_VOR pub structures.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_VOR_LIST {
+pub struct SIMCONNECT_RECV_VOR_LIST {
     dwSize: u32,         // DWORD
     dwVersion: u32,      // DWORD
     dwID: u32,           // DWORD
@@ -393,12 +393,12 @@ struct SIMCONNECT_RECV_VOR_LIST {
     szString: [u8; 256], // char [MAX_PATH]
 }
 
-/// The SIMCONNECT_RECV_WAYPOINT_LIST structure is used to return a list of
-/// SIMCONNECT_DATA_FACILITY_WAYPOINT structures.
+/// The SIMCONNECT_RECV_WAYPOINT_LIST pub structure is used to return a list of
+/// SIMCONNECT_DATA_FACILITY_WAYPOINT pub structures.
 /// Supposed to extend SIMCONNECT_RECV_FACILITIES_LIST
 #[repr(C)]
 #[allow(non_snake_case)]
-struct SIMCONNECT_RECV_WAYPOINT_LIST {
+pub struct SIMCONNECT_RECV_WAYPOINT_LIST {
     dwSize: u32,                                    // DWORD
     dwVersion: u32,                                 // DWORD
     dwID: u32,                                      // DWORD
