@@ -1,5 +1,7 @@
+
 /// The SIMCONNECT_CLIENT_DATA_PERIOD pub enumeration type is used with the SimConnect_RequestClientData
 ///  call to specify how often data is to be sent to the client.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_CLIENT_DATA_PERIOD {
     SIMCONNECT_PERIOD_NEVER,
     SIMCONNECT_PERIOD_ONCE,
@@ -10,6 +12,7 @@ pub enum SIMCONNECT_CLIENT_DATA_PERIOD {
 
 /// The SIMCONNECT_DATATYPE pub enumeration type is used with the SimConnect_AddToDataDefinition
 /// call to specify the data type that the server should use to return the specified data to the client.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_DATATYPE {
     SIMCONNECT_DATATYPE_INVALID,
     SIMCONNECT_DATATYPE_INT32,
@@ -32,6 +35,7 @@ pub enum SIMCONNECT_DATATYPE {
 
 /// The SIMCONNECT_EXCEPTION pub enumeration type is used with the SIMCONNECT_RECV_EXCEPTION structure
 ///  to return information on an error that has occurred.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_EXCEPTION {
     SIMCONNECT_EXCEPTION_NONE = 0,
     SIMCONNECT_EXCEPTION_ERROR = 1,
@@ -75,6 +79,7 @@ pub enum SIMCONNECT_EXCEPTION {
 
 /// The SIMCONNECT_FACILITY_LIST_TYPE pub enumeration type is used to determine which type of facilities
 /// data is being requested or returned.*
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_FACILITY_LIST_TYPE {
     SIMCONNECT_FACILITY_LIST_TYPE_AIRPORT,
     SIMCONNECT_FACILITY_LIST_TYPE_WAYPOINT,
@@ -84,6 +89,7 @@ pub enum SIMCONNECT_FACILITY_LIST_TYPE {
 }
 
 /// The SIMCONNECT_EXCEPTION pub enumeration type is used to specify the three possible outcomes of a mission.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_MISSION_END {
     SIMCONNECT_MISSION_FAILED,
     SIMCONNECT_MISSION_CRASHED,
@@ -92,6 +98,7 @@ pub enum SIMCONNECT_MISSION_END {
 
 /// The SIMCONNECT_PERIOD pub enumeration type is used with the SimConnect_RequestDataOnSimObject
 ///  call to specify how often data is to be sent to the client.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_PERIOD {
     SIMCONNECT_PERIOD_NEVER,
     SIMCONNECT_PERIOD_ONCE,
@@ -102,6 +109,7 @@ pub enum SIMCONNECT_PERIOD {
 
 /// The SIMCONNECT_RECV_ID pub enumeration type is used within the SIMCONNECT_RECV structure
 /// to indicate which type of structure has been returned.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_RECV_ID {
     SIMCONNECT_RECV_ID_NULL,
     SIMCONNECT_RECV_ID_EXCEPTION,
@@ -134,6 +142,7 @@ pub enum SIMCONNECT_RECV_ID {
 
 ///The SIMCONNECT_SIMOBJECT_TYPE pub enumeration type is used with the SimConnect_RequestDataOnSimObjectType
 /// call to request information on specific or nearby objects.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_SIMOBJECT_TYPE {
     SIMCONNECT_SIMOBJECT_TYPE_USER,
     SIMCONNECT_SIMOBJECT_TYPE_ALL,
@@ -145,6 +154,7 @@ pub enum SIMCONNECT_SIMOBJECT_TYPE {
 
 /// The SIMCONNECT_STATE pub enumeration type is used with the SimConnect_SetSystemEventState
 /// call to turn the reporting of events on and off.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_STATE {
     SIMCONNECT_STATE_OFF,
     SIMCONNECT_STATE_ON,
@@ -152,6 +162,7 @@ pub enum SIMCONNECT_STATE {
 
 /// The SIMCONNECT_STATE pub enumeration type is used to specify which event has occurred ù
 /// as a result of a call to SimConnect_Text.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_TEXT_RESULT {
     SIMCONNECT_TEXT_RESULT_MENU_SELECT_1,
     SIMCONNECT_TEXT_RESULT_MENU_SELECT_2,
@@ -172,6 +183,7 @@ pub enum SIMCONNECT_TEXT_RESULT {
 
 /// The SIMCONNECT_TEXT_TYPE pub enumeration type is used to specify which type of text is to be displayed by the SimConnect_Text function.
 
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_TEXT_TYPE {
     SIMCONNECT_TEXT_TYPE_SCROLL_BLACK,
     SIMCONNECT_TEXT_TYPE_SCROLL_WHITE,
@@ -194,6 +206,7 @@ pub enum SIMCONNECT_TEXT_TYPE {
 
 /// The SIMCONNECT_WAYPOINT_FLAGS pub enumeration type is used with the
 /// SIMCONNECT_DATA_WAYPOINT structure to define waypoints.
+#[allow(non_camel_case_types)]
 pub enum SIMCONNECT_cWAYPOINT_FLAGS {
     SIMCONNECT_WAYPOINT_SPEED_REQUESTED = 0x04,
     SIMCONNECT_WAYPOINT_THROTTLE_REQUESTED = 0x08,
