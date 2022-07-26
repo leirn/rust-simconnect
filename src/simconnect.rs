@@ -44,6 +44,7 @@ impl Simconnect {
 pub struct InternalSimconnect {
     pub is_running: bool,
 }
+
 impl InternalSimconnect {
     /// Create a new Simconnect component
     pub fn new() -> InternalSimconnect {
@@ -51,23 +52,19 @@ impl InternalSimconnect {
     }
 
     pub async fn run(&mut self) {
+        println!("Meow!");
+
         unsafe {
-            let h_sim_connect: std::os::windows::raw::HANDLE = 0 as std::os::windows::raw::HANDLE;
             let lib = libloading::Library::new("C:\\MSFS SDK\\SimConnect SDK\\lib\\SimConnect.dll")
                 .unwrap();
             let sim_open: libloading::Symbol<
-                unsafe extern "C" fn(
-                    std::os::windows::raw::HANDLE,
-                    &[u8],
-                    u32,
-                    u32,
-                    u32,
-                    u32,
-                ) -> u32,
+                unsafe extern "stdcall" fn(*mut usize, &[u8], u32, i32, u32, i32) -> u32,
             > = lib.get(b"SimConnect_Open").unwrap();
-            let _hr = sim_open(h_sim_connect, b"Test\0", 0, 0, 0, 0);
+            let mut h_sim_connect = 0;
+            let hr = sim_open(&mut h_sim_connect, b"Test", 0, 0, 0, -1);
+            debug_assert!(hr == 0x0);
+            debug_assert!(h_sim_connect != 0);
         }
-
         self.is_running = true;
         // Call dispatch ?
         while self.is_running {
