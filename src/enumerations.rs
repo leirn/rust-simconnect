@@ -1,6 +1,6 @@
-/// The SIMCONNECT_CLIENT_DATA_PERIOD enumeration type is used with the SimConnect_RequestClientData
+/// The SIMCONNECT_CLIENT_DATA_PERIOD pub enumeration type is used with the SimConnect_RequestClientData
 ///  call to specify how often data is to be sent to the client.
-enum SIMCONNECT_CLIENT_DATA_PERIOD {
+pub enum SIMCONNECT_CLIENT_DATA_PERIOD {
     SIMCONNECT_PERIOD_NEVER,
     SIMCONNECT_PERIOD_ONCE,
     SIMCONNECT_PERIOD_VISUAL_FRAME,
@@ -8,9 +8,9 @@ enum SIMCONNECT_CLIENT_DATA_PERIOD {
     SIMCONNECT_PERIOD_SECOND,
 }
 
-/// The SIMCONNECT_DATATYPE enumeration type is used with the SimConnect_AddToDataDefinition
+/// The SIMCONNECT_DATATYPE pub enumeration type is used with the SimConnect_AddToDataDefinition
 /// call to specify the data type that the server should use to return the specified data to the client.
-enum SIMCONNECT_DATATYPE {
+pub enum SIMCONNECT_DATATYPE {
     SIMCONNECT_DATATYPE_INVALID,
     SIMCONNECT_DATATYPE_INT32,
     SIMCONNECT_DATATYPE_INT64,
@@ -30,9 +30,9 @@ enum SIMCONNECT_DATATYPE {
     SIMCONNECT_DATATYPE_XYZ,
 }
 
-/// The SIMCONNECT_EXCEPTION enumeration type is used with the SIMCONNECT_RECV_EXCEPTION structure
+/// The SIMCONNECT_EXCEPTION pub enumeration type is used with the SIMCONNECT_RECV_EXCEPTION structure
 ///  to return information on an error that has occurred.
-enum SIMCONNECT_EXCEPTION {
+pub enum SIMCONNECT_EXCEPTION {
     SIMCONNECT_EXCEPTION_NONE = 0,
     SIMCONNECT_EXCEPTION_ERROR = 1,
     SIMCONNECT_EXCEPTION_SIZE_MISMATCH = 2,
@@ -60,7 +60,7 @@ enum SIMCONNECT_EXCEPTION {
     SIMCONNECT_EXCEPTION_OPERATION_INVALID_FOR_OJBECT_TYPE = 24,
     SIMCONNECT_EXCEPTION_ILLEGAL_OPERATION = 25,
     SIMCONNECT_EXCEPTION_ALREADY_SUBSCRIBED = 26,
-    SIMCONNECT_EXCEPTION_INVALID_ENUM = 27,
+    SIMCONNECT_EXCEPTION_INVALID_pub = 27,
     SIMCONNECT_EXCEPTION_DEFINITION_ERROR = 28,
     SIMCONNECT_EXCEPTION_DUPLICATE_ID = 29,
     SIMCONNECT_EXCEPTION_DATUM_ID = 30,
@@ -73,9 +73,9 @@ enum SIMCONNECT_EXCEPTION {
     SIMCONNECT_EXCEPTION_OBJECT_SCHEDULE = 37,
 }
 
-/// The SIMCONNECT_FACILITY_LIST_TYPE enumeration type is used to determine which type of facilities
+/// The SIMCONNECT_FACILITY_LIST_TYPE pub enumeration type is used to determine which type of facilities
 /// data is being requested or returned.*
-enum SIMCONNECT_FACILITY_LIST_TYPE {
+pub enum SIMCONNECT_FACILITY_LIST_TYPE {
     SIMCONNECT_FACILITY_LIST_TYPE_AIRPORT,
     SIMCONNECT_FACILITY_LIST_TYPE_WAYPOINT,
     SIMCONNECT_FACILITY_LIST_TYPE_NDB,
@@ -83,16 +83,16 @@ enum SIMCONNECT_FACILITY_LIST_TYPE {
     SIMCONNECT_FACILITY_LIST_TYPE_COUNT,
 }
 
-/// The SIMCONNECT_EXCEPTION enumeration type is used to specify the three possible outcomes of a mission.
-enum SIMCONNECT_MISSION_END {
+/// The SIMCONNECT_EXCEPTION pub enumeration type is used to specify the three possible outcomes of a mission.
+pub enum SIMCONNECT_MISSION_END {
     SIMCONNECT_MISSION_FAILED,
     SIMCONNECT_MISSION_CRASHED,
     SIMCONNECT_MISSION_SUCCEEDED,
 }
 
-/// The SIMCONNECT_PERIOD enumeration type is used with the SimConnect_RequestDataOnSimObject
+/// The SIMCONNECT_PERIOD pub enumeration type is used with the SimConnect_RequestDataOnSimObject
 ///  call to specify how often data is to be sent to the client.
-enum SIMCONNECT_PERIOD {
+pub enum SIMCONNECT_PERIOD {
     SIMCONNECT_PERIOD_NEVER,
     SIMCONNECT_PERIOD_ONCE,
     SIMCONNECT_PERIOD_VISUAL_FRAME,
@@ -100,9 +100,9 @@ enum SIMCONNECT_PERIOD {
     SIMCONNECT_PERIOD_SECOND,
 }
 
-/// The SIMCONNECT_RECV_ID enumeration type is used within the SIMCONNECT_RECV structure
+/// The SIMCONNECT_RECV_ID pub enumeration type is used within the SIMCONNECT_RECV structure
 /// to indicate which type of structure has been returned.
-enum SIMCONNECT_RECV_ID {
+pub enum SIMCONNECT_RECV_ID {
     SIMCONNECT_RECV_ID_NULL,
     SIMCONNECT_RECV_ID_EXCEPTION,
     SIMCONNECT_RECV_ID_OPEN,
@@ -132,9 +132,9 @@ enum SIMCONNECT_RECV_ID {
     SIMCONNECT_RECV_ID_EVENT_RACE_LAP,
 }
 
-///The SIMCONNECT_SIMOBJECT_TYPE enumeration type is used with the SimConnect_RequestDataOnSimObjectType
+///The SIMCONNECT_SIMOBJECT_TYPE pub enumeration type is used with the SimConnect_RequestDataOnSimObjectType
 /// call to request information on specific or nearby objects.
-enum SIMCONNECT_SIMOBJECT_TYPE {
+pub enum SIMCONNECT_SIMOBJECT_TYPE {
     SIMCONNECT_SIMOBJECT_TYPE_USER,
     SIMCONNECT_SIMOBJECT_TYPE_ALL,
     SIMCONNECT_SIMOBJECT_TYPE_AIRCRAFT,
@@ -143,16 +143,16 @@ enum SIMCONNECT_SIMOBJECT_TYPE {
     SIMCONNECT_SIMOBJECT_TYPE_GROUND,
 }
 
-/// The SIMCONNECT_STATE enumeration type is used with the SimConnect_SetSystemEventState
+/// The SIMCONNECT_STATE pub enumeration type is used with the SimConnect_SetSystemEventState
 /// call to turn the reporting of events on and off.
-enum SIMCONNECT_STATE {
+pub enum SIMCONNECT_STATE {
     SIMCONNECT_STATE_OFF,
     SIMCONNECT_STATE_ON,
 }
 
-/// The SIMCONNECT_STATE enumeration type is used to specify which event has occurred ù
+/// The SIMCONNECT_STATE pub enumeration type is used to specify which event has occurred ù
 /// as a result of a call to SimConnect_Text.
-enum SIMCONNECT_TEXT_RESULT {
+pub enum SIMCONNECT_TEXT_RESULT {
     SIMCONNECT_TEXT_RESULT_MENU_SELECT_1,
     SIMCONNECT_TEXT_RESULT_MENU_SELECT_2,
     SIMCONNECT_TEXT_RESULT_MENU_SELECT_3,
@@ -170,9 +170,9 @@ enum SIMCONNECT_TEXT_RESULT {
     SIMCONNECT_TEXT_RESULT_DISPLAYED = 0x00010000,
 }
 
-/// The SIMCONNECT_TEXT_TYPE enumeration type is used to specify which type of text is to be displayed by the SimConnect_Text function.
+/// The SIMCONNECT_TEXT_TYPE pub enumeration type is used to specify which type of text is to be displayed by the SimConnect_Text function.
 
-enum SIMCONNECT_TEXT_TYPE {
+pub enum SIMCONNECT_TEXT_TYPE {
     SIMCONNECT_TEXT_TYPE_SCROLL_BLACK,
     SIMCONNECT_TEXT_TYPE_SCROLL_WHITE,
     SIMCONNECT_TEXT_TYPE_SCROLL_RED,
@@ -192,9 +192,9 @@ enum SIMCONNECT_TEXT_TYPE {
     SIMCONNECT_TEXT_TYPE_MENU = 0x0200,
 }
 
-/// The SIMCONNECT_WAYPOINT_FLAGS enumeration type is used with the
+/// The SIMCONNECT_WAYPOINT_FLAGS pub enumeration type is used with the
 /// SIMCONNECT_DATA_WAYPOINT structure to define waypoints.
-enum SIMCONNECT_WAYPOINT_FLAGS {
+pub enum SIMCONNECT_cWAYPOINT_FLAGS {
     SIMCONNECT_WAYPOINT_SPEED_REQUESTED = 0x04,
     SIMCONNECT_WAYPOINT_THROTTLE_REQUESTED = 0x08,
     SIMCONNECT_WAYPOINT_COMPUTE_VERTICAL_SPEED = 0x10,

@@ -4,9 +4,14 @@ use std::time::Duration;
 
 #[tokio::main]
 async fn main() {
-    let mut simconnect = Simconnect::new();
+    let simconnect = Simconnect::new();
     let _connexion = simconnect.connect().await;
-    simconnect.close().await;
+    
+    loop {
+        tokio::time::sleep(Duration::from_millis(2)).await;
+    }
+    //simconnect.close().await;
+    
 }
 
 #[cfg(test)]
@@ -24,6 +29,7 @@ mod tests {
         let simconnect: simconnect::simconnect::Simconnect =
             simconnect::simconnect::Simconnect::new();
         simconnect.connect().await;
+        tokio::time::sleep(std::time::Duration::from_millis(500)).await;
         let running = simconnect.get_running_status().await;
         assert_eq!(running, true);
     }
@@ -33,6 +39,7 @@ mod tests {
         let mut simconnect: simconnect::simconnect::Simconnect =
             simconnect::simconnect::Simconnect::new();
         simconnect.connect().await;
+        tokio::time::sleep(std::time::Duration::from_millis(500)).await;
         simconnect.close().await;
         let running = simconnect.get_running_status().await;
         assert_eq!(running, false);
