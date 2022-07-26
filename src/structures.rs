@@ -3,6 +3,7 @@ use crate::enumerations::SIMCONNECT_SIMOBJECT_TYPE;
 /// The SIMCONNECT_DATA_FACILITY_AIRPORT structure is used to return information
 /// on a single airport in the facilities cache.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_FACILITY_AIRPORT {
     Icao: [u8; 9],  // char [9]
     Latitude: f64,  // double
@@ -14,6 +15,7 @@ struct SIMCONNECT_DATA_FACILITY_AIRPORT {
 /// on a single NDB station in the facilities cache.
 /// Supposed to extend SIMCONNECT_DATA_FACILITY_WAYPOINT
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_FACILITY_NDB {
     Icao: [u8; 9],   // char [9]
     Latitude: f64,   // double
@@ -27,6 +29,7 @@ struct SIMCONNECT_DATA_FACILITY_NDB {
 ///  on a single VOR station in the facilities cache.
 /// Supposed to extend SIMCONNECT_DATA_FACILITY_NDB
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_FACILITY_VOR {
     Icao: [u8; 9],         // char [9]
     Latitude: f64,         // double
@@ -46,6 +49,7 @@ struct SIMCONNECT_DATA_FACILITY_VOR {
 ///  on a single waypoint in the facilities cache.
 /// Supposed to extend SIMCONNECT_DATA_FACILITY_AIRPORT
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_FACILITY_WAYPOINT {
     Icao: [u8; 9],  // char [9]
     Latitude: f64,  // double
@@ -57,6 +61,7 @@ struct SIMCONNECT_DATA_FACILITY_WAYPOINT {
 /// The SIMCONNECT_DATA_INITPOSITION structure is used to initialize the position
 ///  of the user aircraft, AI controlled aircraft, or other simulation object.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_INITPOSITION {
     Latitude: f64,  // double
     Longitude: f64, // double
@@ -70,6 +75,7 @@ struct SIMCONNECT_DATA_INITPOSITION {
 
 /// The SIMCONNECT_DATA_LATLONALT structure is used to hold a world position.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_LATLONALT {
     Latitude: f64,  // double
     Longitude: f64, // double
@@ -79,6 +85,7 @@ struct SIMCONNECT_DATA_LATLONALT {
 /// The SIMCONNECT_DATA_MARKERSTATE structure is used to help graphically
 /// link flight model data with the graphics model.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_MARKERSTATE {
     szMarkerName: [u8; 64], // char [64]
     dwMarkerState: u32,     // DWORD
@@ -87,6 +94,7 @@ struct SIMCONNECT_DATA_MARKERSTATE {
 /// The SIMCONNECT_DATA_MARKERSTATE structure is used to help graphically
 /// link flight model data with the graphics model.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_WAYPOINT {
     Latitude: f64,        // double
     Longitude: f64,       // double
@@ -97,6 +105,7 @@ struct SIMCONNECT_DATA_WAYPOINT {
 }
 /// The SIMCONNECT_DATA_XYZ structure is used to hold a 3D co-ordinate.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_DATA_XYZ {
     x: f64, // double
     y: f64, // double
@@ -107,6 +116,7 @@ struct SIMCONNECT_DATA_XYZ {
 /// SimConnect_AddToDataDefinition call to specify the data type that the
 /// server should use to return the specified data to the client.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV {
     dwSize: u32,    // DWORD
     dwVersion: u32, // DWORD
@@ -117,6 +127,7 @@ struct SIMCONNECT_RECV {
 /// of SIMCONNECT_DATA_FACILITY_AIRPORT structures.
 /// Supposed to extend SIMCONNECT_RECV_FACILITIES_LIST
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_AIRPORT_LIST {
     dwSize: u32,                                   // DWORD
     dwVersion: u32,                                // DWORD
@@ -132,6 +143,7 @@ struct SIMCONNECT_RECV_AIRPORT_LIST {
 /// an object ID that matches a request ID.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_ASSIGNED_OBJECT_ID {
     dwSize: u32,      // DWORD
     dwVersion: u32,   // DWORD
@@ -144,6 +156,7 @@ struct SIMCONNECT_RECV_ASSIGNED_OBJECT_ID {
 /// after a successful call to SimConnect_RequestClientData. It is an identical
 /// structure to SIMCONNECT_RECV_SIMOBJECT_DATA.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_CLIENT_DATA {
     dwSize: u32,        // DWORD
     dwVersion: u32,     // DWORD
@@ -161,6 +174,7 @@ struct SIMCONNECT_RECV_CLIENT_DATA {
 /// The SIMCONNECT_RECV_EVENT structure is used to return an event ID to the client.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_EVENT {
     dwSize: u32,    // DWORD
     dwVersion: u32, // DWORD
@@ -174,6 +188,7 @@ struct SIMCONNECT_RECV_EVENT {
 /// an event ID to the client.
 /// Supposed to extend SIMCONNECT_RECV_EVENT
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_EVENT_FILENAME {
     dwSize: u32,           // DWORD
     dwVersion: u32,        // DWORD
@@ -190,6 +205,7 @@ struct SIMCONNECT_RECV_EVENT_FILENAME {
 /// speed to the client.
 /// Supposed to extend SIMCONNECT_RECV_EVENT
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_EVENT_FRAME {
     dwSize: u32,     // DWORD
     dwVersion: u32,  // DWORD
@@ -205,6 +221,7 @@ struct SIMCONNECT_RECV_EVENT_FRAME {
 /// and ID of an AI object that has been added or removed from the simulation, by any client.
 /// Supposed to extend SIMCONNECT_RECV_EVENT
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_EVENT_OBJECT_ADDREMOVE {
     dwSize: u32,                                              // DWORD
     dwVersion: u32,                                           // DWORD
@@ -219,6 +236,7 @@ struct SIMCONNECT_RECV_EVENT_OBJECT_ADDREMOVE {
 /// enumeration type to return information on an error that has occurred.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_EXCEPTION {
     dwSize: u32,      // DWORD
     dwVersion: u32,   // DWORD
@@ -233,6 +251,7 @@ struct SIMCONNECT_RECV_EXCEPTION {
 /// that were used to transmit the data.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_FACILITIES_LIST {
     dwSize: u32,      // DWORD
     dwVersion: u32,   // DWORD
@@ -247,6 +266,7 @@ struct SIMCONNECT_RECV_FACILITIES_LIST {
 /// structures.
 /// Supposed to extend SIMCONNECT_RECV_FACILITES_LIST
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_NDB_LIST {
     dwSize: u32,                               // DWORD
     dwVersion: u32,                            // DWORD
@@ -262,6 +282,7 @@ struct SIMCONNECT_RECV_NDB_LIST {
 /// successful call to SimConnect_Open.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_OPEN {
     dwSize: u32,                    // DWORD
     dwVersion: u32,                 // DWORD
@@ -282,6 +303,7 @@ struct SIMCONNECT_RECV_OPEN {
 /// The SIMCONNECT_RECV_QUIT is an identical structure to the SIMCONNECT_RECV structure.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_QUIT {
     dwSize: u32,    // DWORD
     dwVersion: u32, // DWORD
@@ -292,6 +314,7 @@ struct SIMCONNECT_RECV_QUIT {
 /// SimConnect_RequestReservedKey function to return the reserved key combination.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_RESERVED_KEY {
     dwSize: u32,                // DWORD
     dwVersion: u32,             // DWORD
@@ -305,6 +328,7 @@ struct SIMCONNECT_RECV_RESERVED_KEY {
 /// SimConnect_RequestDataOnSimObjectType.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_SIMOBJECT_DATA {
     dwSize: u32,        // DWORD
     dwVersion: u32,     // DWORD
@@ -323,6 +347,7 @@ struct SIMCONNECT_RECV_SIMOBJECT_DATA {
 /// client after a successful call to SimConnect_RequestDataOnSimObjectType. It
 /// is an identical structure to SIMCONNECT_RECV_SIMOBJECT_DATA.
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE {
     dwSize: u32,        // DWORD
     dwVersion: u32,     // DWORD
@@ -342,6 +367,7 @@ struct SIMCONNECT_RECV_SIMOBJECT_DATA_BYTYPE {
 /// Simulator systems states and information.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_SYSTEM_STATE {
     dwSize: u32,         // DWORD
     dwVersion: u32,      // DWORD
@@ -356,6 +382,7 @@ struct SIMCONNECT_RECV_SYSTEM_STATE {
 /// SIMCONNECT_DATA_FACILITY_VOR structures.
 /// Supposed to extend SIMCONNECT_RECV
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_VOR_LIST {
     dwSize: u32,         // DWORD
     dwVersion: u32,      // DWORD
@@ -370,6 +397,7 @@ struct SIMCONNECT_RECV_VOR_LIST {
 /// SIMCONNECT_DATA_FACILITY_WAYPOINT structures.
 /// Supposed to extend SIMCONNECT_RECV_FACILITIES_LIST
 #[repr(C)]
+#[allow(non_snake_case)]
 struct SIMCONNECT_RECV_WAYPOINT_LIST {
     dwSize: u32,                                    // DWORD
     dwVersion: u32,                                 // DWORD
