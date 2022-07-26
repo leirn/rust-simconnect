@@ -7,6 +7,12 @@ pub struct Simconnect {
     pub inner: Arc<Mutex<InternalSimconnect>>,
 }
 
+impl Default for Simconnect {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl Simconnect {
     /// Create a new Simconnect component
     pub fn new() -> Simconnect {
@@ -67,5 +73,10 @@ impl InternalSimconnect {
         while self.is_running {
             tokio::time::sleep(Duration::from_millis(2)).await;
         }
+    }
+}
+impl Default for InternalSimconnect {
+    fn default() -> Self {
+        Self::new()
     }
 }
