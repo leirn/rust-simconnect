@@ -1,38 +1,53 @@
+use std::{sync::Arc, time::Duration};
 /// Main Simconnect component
+use tokio::sync::Mutex;
 
-use tokio::task;
-
+#[derive(Clone)]
 pub struct Simconnect {
-    isConnected: bool,
-    isRunning: bool,
+    pub inner: Arc<Mutex<InternalSimconnect>>,
 }
 
 impl Simconnect {
-
     /// Create a new Simconnect component
     pub fn new() -> Simconnect {
         Simconnect {
-            isConnected: False,
-            isRunning: False,
+            inner: Arc::new(Mutex::new(InternalSimconnect::new())),
         }
+    }
+    pub async fn get_running_status(&self) -> bool {
+        let inner = self.inner.lock().await;
+        (*inner).is_running
     }
 
     /// Initiate connection with FS
-    async pub fn connect(&self) -> Result<bool> {
-        tokio::join!(
-            run(self.run())
-        );
+    pub async fn connect(&self) -> Result<(), tokio::task::JoinError> {
+        let inner = Arc::clone(&self.inner);
+        tokio::spawn(async move {
+            let mut tmp = inner.lock().await;
+            tmp.run().await;
+        }).await
     }
 
     /// Close connection with FS
-    async pub fn close(&mut self) -> Result<bool> {
-        self.isRunning = False;
+    pub async fn close(&mut self) {
+        self.inner.lock().await.is_running = false;
+    }
+}
+
+pub struct InternalSimconnect {
+    pub is_running: bool,
+}
+impl InternalSimconnect {
+    /// Create a new Simconnect component
+    pub fn new() -> InternalSimconnect {
+        InternalSimconnect { is_running: false }
     }
 
-    async fn run(&self) -> Result<bool> {
+    pub async fn run(&mut self) {
+        self.is_running = true;
         // Call dispatch ?
-        while(self.isRunning) {
-            tokio::time::sleep(Duration::from_millisecs(2)).await;
+        while self.is_running {
+            tokio::time::sleep(Duration::from_millis(2)).await;
         }
     }
 }
