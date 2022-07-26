@@ -1,11 +1,11 @@
 extern crate simconnect;
-use std::time::Duration;
 use simconnect::simconnect::Simconnect;
+use std::time::Duration;
 
 #[tokio::main]
 async fn main() {
     let mut simconnect = Simconnect::new();
-    let _connexion = simconnect.connect().await.unwrap();
+    let _connexion = simconnect.connect().await;
     simconnect.close().await;
 }
 
@@ -20,14 +20,19 @@ mod tests {
     }
 
     #[actix_rt::test]
+    async fn start_simconnect() {
+        let simconnect: simconnect::simconnect::Simconnect =
+            simconnect::simconnect::Simconnect::new();
+        simconnect.connect().await;
+        let running = simconnect.get_running_status().await;
+        assert_eq!(running, true);
+    }
+
+    #[actix_rt::test]
     async fn start_and_stop_simconnect() {
         let mut simconnect: simconnect::simconnect::Simconnect =
             simconnect::simconnect::Simconnect::new();
-        //let running = simconnect.get_running_status().await;
-        //assert_eq!(running, false);
-        simconnect.connect().await.unwrap();
-        let running = simconnect.get_running_status().await;
-        assert_eq!(running, true);
+        simconnect.connect().await;
         simconnect.close().await;
         let running = simconnect.get_running_status().await;
         assert_eq!(running, false);

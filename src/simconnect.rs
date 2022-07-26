@@ -20,12 +20,13 @@ impl Simconnect {
     }
 
     /// Initiate connection with FS
-    pub async fn connect(&self) -> Result<(), tokio::task::JoinError> {
+    pub async fn connect(&self) -> tokio::task::JoinHandle<()> {
         let inner = Arc::clone(&self.inner);
+        inner.lock().await.is_running = true;
         tokio::spawn(async move {
             let mut tmp = inner.lock().await;
             tmp.run().await;
-        }).await
+        })
     }
 
     /// Close connection with FS
